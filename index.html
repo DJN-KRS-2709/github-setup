@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Follow along for The GitHub Setup Every AI Builder Needs. Empty repo first, then the Vibe Coding template.">
+<title>GitHub Setup · Follow along</title>
+<link rel="stylesheet" href="assets/fonts/ps-fonts.css">
+<style>
+:root {
+  --ps-ink: #0A0A0B;
+  --ps-ink-60: rgba(10, 10, 11, 0.60);
+  --ps-ink-45: rgba(10, 10, 11, 0.45);
+  --ps-ink-28: rgba(10, 10, 11, 0.28);
+  --ps-ink-12: rgba(10, 10, 11, 0.12);
+  --ps-paper: #FFFFFF;
+  --ps-paper-tint: #F6F6F7;
+  --ps-blue: #2B54E8;
+  --ps-orange-ink: #E07B1E;
+  --text-primary: var(--ps-ink);
+  --text-secondary: var(--ps-ink-60);
+  --text-muted: var(--ps-ink-45);
+  --text-accent: var(--ps-orange-ink);
+  --surface-page: var(--ps-paper);
+  --surface-card: var(--ps-paper);
+  --surface-sunken: var(--ps-paper-tint);
+  --border-default: var(--ps-ink-28);
+  --border-subtle: var(--ps-ink-12);
+  --focus-ring: var(--ps-blue);
+  --font-sans: "Saans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Antarctican Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --type-display-1: var(--fw-medium) 56px/1.0 var(--font-sans);
+  --type-display-3: var(--fw-medium) 28px/1.05 var(--font-sans);
+  --type-heading: var(--fw-medium) 21px/1.15 var(--font-sans);
+  --type-subheading: var(--fw-medium) 17px/1.25 var(--font-sans);
+  --type-body: var(--fw-regular) 15px/1.55 var(--font-sans);
+  --type-body-sm: var(--fw-regular) 13px/1.5 var(--font-sans);
+  --type-label: 500 11px/1.2 var(--font-mono);
+  --type-meta: 400 12px/1.6 var(--font-mono);
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-body: -0.005em;
+  --tracking-label: 0.2em;
+  --tracking-label-loose: 0.24em;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --gutter-page: var(--space-6);
+  --max-measure: 62ch;
+  --max-content: 1180px;
+  --radius-none: 0px;
+  --border-thin: 1px;
+  --rule-accent-height: 4px;
+  --gradient-spectrum: linear-gradient(90deg, #F59A3F, #C77BC0, #7B61E8, #2B54E8);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--max-content); margin: 0 auto; padding: 0 var(--gutter-page); }
+.col { max-width: var(--max-measure); }
+a { color: var(--text-accent); }
+a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+.eyebrow {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label-loose);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+.rule {
+  height: var(--rule-accent-height);
+  width: 180px;
+  background: var(--gradient-spectrum);
+  border: 0;
+}
+header.masthead { padding: var(--space-9) 0 var(--space-8); }
+header.masthead h1 {
+  font: var(--type-display-1);
+  font-size: clamp(36px, 6vw, 56px);
+  letter-spacing: var(--tracking-display);
+  margin: var(--space-3) 0 0;
+  text-wrap: balance;
+}
+.standfirst {
+  font: var(--type-subheading);
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 48ch;
+  margin: var(--space-5) 0 0;
+}
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding-top: var(--space-5);
+  border-top: var(--border-thin) solid var(--border-default);
+  font: var(--type-meta);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.lanes {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: var(--border-thin) solid var(--border-default);
+  margin: 0 0 var(--space-7);
+}
+@media (min-width: 52rem) { .lanes { grid-template-columns: 1fr 1fr; } }
+.lane {
+  padding: var(--space-5);
+  background: var(--surface-card);
+}
+@media (min-width: 52rem) {
+  .lane:first-child { border-right: var(--border-thin) solid var(--border-default); }
+}
+.lane .eyebrow { color: var(--text-accent); margin-bottom: var(--space-3); }
+.lane h2 {
+  font: var(--type-heading);
+  letter-spacing: var(--tracking-heading);
+  margin: 0 0 var(--space-3);
+}
+.lane p { color: var(--text-secondary); margin: 0; }
+.steps { display: grid; gap: 0; border: var(--border-thin) solid var(--border-default); }
+.step {
+  padding: var(--space-5);
+  border-bottom: var(--border-thin) solid var(--border-default);
+  background: var(--surface-card);
+}
+.step:last-child { border-bottom: 0; }
+.step-num {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.step h2 {
+  font: var(--type-display-3);
+  letter-spacing: var(--tracking-heading);
+  margin: var(--space-2) 0 var(--space-3);
+}
+.step ol { margin: 0; padding-left: 1.2em; color: var(--text-secondary); }
+.step li { margin: 0 0 var(--space-2); }
+.step li:last-child { margin-bottom: 0; }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--surface-sunken);
+  padding: 1px 6px;
+}
+.cta {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--ps-blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+}
+.cta:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+.movement { padding: var(--space-8) 0; }
+.movement--tint { background: var(--surface-sunken); }
+.movement h2 {
+  font: var(--type-display-3);
+  letter-spacing: var(--tracking-heading);
+  margin: 0 0 var(--space-4);
+}
+p { margin: 0 0 var(--space-4); }
+p:last-child { margin-bottom: 0; }
+.prompt {
+  border: var(--border-thin) solid var(--border-default);
+  background: var(--surface-sunken);
+  padding: var(--space-5);
+  font: var(--type-body);
+  margin-top: var(--space-4);
+}
+footer {
+  border-top: var(--border-thin) solid var(--border-default);
+  padding: var(--space-6) 0 var(--space-9);
+  font: var(--type-meta);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Product School · Live hour · 15 Oct 2026</p>
+    <h1>Follow along. Five steps.</h1>
+    <div class="rule" style="margin-top: 26px;"></div>
+    <p class="standfirst">Dejan shares his screen the whole time. If you have no account, start at step 1. Catch the next beat when you land. Keep the page after class. Nothing gets submitted.</p>
+    <div class="byline">
+      <span>The GitHub setup every AI builder needs</span>
+      <span>9:00 to 10:00 AM PT</span>
+    </div>
+  </header>
+
+  <div class="lanes">
+    <div class="lane">
+      <p class="eyebrow">Lane A</p>
+      <h2>I have nothing set up</h2>
+      <p>Start at step 1 on your laptop while he walks the GitHub home page. He will sign in with his account. At step 3, copy the HTTPS link and ask your tool to clone it.</p>
+    </div>
+    <div class="lane">
+      <p class="eyebrow">Lane B</p>
+      <h2>I already have GitHub</h2>
+      <p>Stay signed in. Jump to step 2 when he creates a repo. You are not behind.</p>
+    </div>
+  </div>
+</div>
+
+<section class="movement">
+  <div class="wrap">
+    <div class="steps">
+      <article class="step" id="s1">
+        <span class="step-num">01 · Account</span>
+        <h2>Create a free GitHub account</h2>
+        <ol>
+          <li>Open <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>.</li>
+          <li>Use an email you can open right now.</li>
+          <li>Free plan. That is enough.</li>
+        </ol>
+      </article>
+      <article class="step" id="s2">
+        <span class="step-num">02 · Repo</span>
+        <h2>Create a normal repo</h2>
+        <ol>
+          <li>Open <a href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a>. You must be signed in.</li>
+          <li>Name it <code>github-setup-hour</code>.</li>
+          <li>Public is fine for tonight.</li>
+          <li>Check Add a README file. That gives you a file to edit.</li>
+          <li>Click Create repository.</li>
+        </ol>
+      </article>
+      <article class="step" id="s3">
+        <span class="step-num">03 · Clone</span>
+        <h2>Clone it with your tool</h2>
+        <ol>
+          <li>On the repo page, click the green Code button. Copy the HTTPS link.</li>
+          <li>Open Claude Code, Codex, or whatever you already use.</li>
+          <li>New agent. Paste the link. Say: hey, clone this repo for me locally.</li>
+          <li>If you just made the account, stay on HTTPS. Do not use SSH unless you already have a key.</li>
+        </ol>
+      </article>
+      <article class="step" id="s4">
+        <span class="step-num">04 · Change and push</span>
+        <h2>Open the folder in your tool</h2>
+        <ol>
+          <li>New agent. Select the <code>github-setup-hour</code> folder.</li>
+          <li>Paste the prompt below. If GitHub asks who you are, log in in the browser. Same account. Do not type a password in the terminal.</li>
+          <li>Refresh the repo on github.com. Your line should be in <code>README.md</code>.</li>
+        </ol>
+        <div class="prompt">Open README.md. Add a short line at the top with my name and today's date that says this repo is the save point for the Product School GitHub setup hour. Commit that change and push it to GitHub.</div>
+      </article>
+      <article class="step" id="s5">
+        <span class="step-num">05 · Template</span>
+        <h2>Create the Vibe Coding repo. Do not clone it.</h2>
+        <ol>
+          <li>Click Use this template. Stay in the browser.</li>
+          <li>Name it <code>my-vibe-coding-project</code>.</li>
+          <li>Create repository. You should see six folders, from <code>01-velocity/</code> to <code>06-iteration/</code>.</li>
+          <li>Stop. Do not clone this one tonight. In Vibe Coding you upload into this repo. Do not connect your build tool to GitHub.</li>
+        </ol>
+        <a class="cta" href="https://github.com/new?template_name=vibe-coding-project-template&amp;template_owner=Product-School-Platform" target="_blank" rel="noopener">Use this template</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="movement movement--tint">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">After the five steps</p>
+      <h2>This is how class starts</h2>
+      <p>You learned the loop on a blank repo. Then you used the Vibe Coding template. Same button on day one of that course. Same repo name.</p>
+      <p>The other certifications use the same Use this template button with different folders. Do not connect a vibe-coding build tool to GitHub. The product stays in the build tool. The repo holds the write-up.</p>
+      <p><a href="https://github.com/new?template_name=vibe-coding-project-template&amp;template_owner=Product-School-Platform" target="_blank" rel="noopener">Open the Vibe Coding repo template</a> if you want to see the full folder map.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <p>Keep this page. The hour is the setup. The course is what you do once the folder is open.</p>
+  </footer>
+</div>
+</body>
+</html>

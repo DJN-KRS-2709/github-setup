@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Get a GitHub account and a folder tool ready before the Oct 15 GitHub setup hour. Thursday, 9:00 AM PT.">
+<title>GitHub Setup · Pre-read</title>
+<link rel="stylesheet" href="assets/fonts/ps-fonts.css">
+<style>
+:root {
+  --ps-ink: #0A0A0B;
+  --ps-ink-60: rgba(10, 10, 11, 0.60);
+  --ps-ink-45: rgba(10, 10, 11, 0.45);
+  --ps-ink-28: rgba(10, 10, 11, 0.28);
+  --ps-ink-12: rgba(10, 10, 11, 0.12);
+  --ps-paper: #FFFFFF;
+  --ps-paper-tint: #F6F6F7;
+  --ps-blue: #2B54E8;
+  --ps-orange-ink: #E07B1E;
+  --text-primary: var(--ps-ink);
+  --text-secondary: var(--ps-ink-60);
+  --text-muted: var(--ps-ink-45);
+  --text-accent: var(--ps-orange-ink);
+  --surface-page: var(--ps-paper);
+  --surface-card: var(--ps-paper);
+  --surface-sunken: var(--ps-paper-tint);
+  --border-default: var(--ps-ink-28);
+  --border-subtle: var(--ps-ink-12);
+  --focus-ring: var(--ps-blue);
+  --font-sans: "Saans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Antarctican Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --type-display-1: var(--fw-medium) 56px/1.0 var(--font-sans);
+  --type-display-3: var(--fw-medium) 28px/1.05 var(--font-sans);
+  --type-heading: var(--fw-medium) 21px/1.15 var(--font-sans);
+  --type-subheading: var(--fw-medium) 17px/1.25 var(--font-sans);
+  --type-body: var(--fw-regular) 15px/1.55 var(--font-sans);
+  --type-body-sm: var(--fw-regular) 13px/1.5 var(--font-sans);
+  --type-label: 500 11px/1.2 var(--font-mono);
+  --type-meta: 400 12px/1.6 var(--font-mono);
+  --tracking-display: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-body: -0.005em;
+  --tracking-label: 0.2em;
+  --tracking-label-loose: 0.24em;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --gutter-page: var(--space-6);
+  --max-measure: 62ch;
+  --max-content: 1180px;
+  --radius-none: 0px;
+  --border-thin: 1px;
+  --rule-accent-height: 4px;
+  --gradient-spectrum: linear-gradient(90deg, #F59A3F, #C77BC0, #7B61E8, #2B54E8);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: var(--max-content); margin: 0 auto; padding: 0 var(--gutter-page); }
+.col { max-width: var(--max-measure); }
+a { color: var(--text-accent); }
+a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+.eyebrow {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label-loose);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0;
+}
+.rule {
+  height: var(--rule-accent-height);
+  width: 180px;
+  background: var(--gradient-spectrum);
+  border: 0;
+}
+header.masthead { padding: var(--space-9) 0 var(--space-8); }
+header.masthead h1 {
+  font: var(--type-display-1);
+  font-size: clamp(36px, 6vw, 56px);
+  letter-spacing: var(--tracking-display);
+  margin: var(--space-3) 0 0;
+  text-wrap: balance;
+}
+.standfirst {
+  font: var(--type-subheading);
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 48ch;
+  margin: var(--space-5) 0 0;
+}
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding-top: var(--space-5);
+  border-top: var(--border-thin) solid var(--border-default);
+  font: var(--type-meta);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.movement { padding: var(--space-8) 0; border-top: var(--border-thin) solid var(--border-subtle); }
+.movement--tint { background: var(--surface-sunken); }
+.movement h2 {
+  font: var(--type-display-3);
+  letter-spacing: var(--tracking-heading);
+  margin: 0 0 var(--space-4);
+}
+p { margin: 0 0 var(--space-4); }
+p:last-child { margin-bottom: 0; }
+.kits {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: var(--border-thin) solid var(--border-default);
+}
+@media (min-width: 52rem) { .kits { grid-template-columns: repeat(2, 1fr); } }
+.kit {
+  padding: var(--space-5);
+  background: var(--surface-card);
+  border-bottom: var(--border-thin) solid var(--border-default);
+}
+@media (min-width: 52rem) {
+  .kit { border-bottom: 0; border-right: var(--border-thin) solid var(--border-default); }
+  .kit:last-child { border-right: 0; }
+}
+.kit-num {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.kit h3 {
+  font: var(--type-heading);
+  letter-spacing: var(--tracking-heading);
+  margin: var(--space-2) 0 var(--space-3);
+}
+.kit p { color: var(--text-secondary); font: var(--type-body-sm); margin: 0 0 var(--space-4); }
+.kit p:last-child { margin-bottom: 0; }
+.cta {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  background: var(--ps-blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+}
+.callout {
+  border: var(--border-thin) solid var(--border-default);
+  background: var(--surface-card);
+  padding: var(--space-5);
+  margin: 0 0 var(--space-5);
+}
+.callout .eyebrow { color: var(--text-accent); margin-bottom: var(--space-3); }
+.callout p { color: var(--text-secondary); }
+code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--surface-sunken);
+  padding: 1px 6px;
+}
+ol { margin: 0; padding-left: 1.2em; color: var(--text-secondary); }
+li { margin: 0 0 var(--space-2); }
+footer {
+  border-top: var(--border-thin) solid var(--border-default);
+  padding: var(--space-6) 0 var(--space-9);
+  font: var(--type-meta);
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Product School · Pre-read · Before 15 Oct 2026, 9:00 AM PT</p>
+    <h1>Get these two things ready.</h1>
+    <div class="rule" style="margin-top: 26px;"></div>
+    <p class="standfirst">Ten minutes, before the hour. Dejan will screen-share every click. If you do this now, you stay with him. If you skip it, still come. You can create the account in the hour, on your laptop. Nothing gets submitted. This page is only so you show up ready.</p>
+    <div class="byline">
+      <span>The GitHub setup every AI builder needs</span>
+      <span>Thursday 15 Oct, 9:00 to 10:00 AM PT</span>
+    </div>
+  </header>
+</div>
+
+<section class="movement" style="border-top: 0; padding-top: 0;">
+  <div class="wrap">
+    <div class="kits">
+      <article class="kit">
+        <span class="kit-num">01 · Required</span>
+        <h3>A GitHub account</h3>
+        <p>Free. Use an email you can open, or Google or Apple single sign-on. Better before Thursday. If you skip it, still come. He walks the GitHub home page, then signs in with his account. You create yours on your laptop.</p>
+        <a class="cta" href="https://github.com/signup" target="_blank" rel="noopener">Create an account</a>
+      </article>
+      <article class="kit">
+        <span class="kit-num">02 · Follow along</span>
+        <h3>A tool that can open a folder</h3>
+        <p>Claude Code, Codex, or whatever you already use. It has to work on a local folder, not only in a chat tab. You will paste a repo link and ask it to clone.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="movement movement--tint">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">If you only do one</p>
+      <h2>Get the GitHub account verified.</h2>
+      <p>If you already have one, you skip the first click. If you do not, you make it on your laptop while he walks the page. Your coding tool can wait. You can watch the clone and still do the template at the end.</p>
+    </div>
+  </div>
+</section>
+
+<section class="movement">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">What we will do on Thursday</p>
+      <h2>A blank repo first. Then a course template.</h2>
+      <p>We will create a normal GitHub repo, copy the HTTPS link, ask your tool to clone it, make one change, and push it. Last, we click Use this template on the Vibe Coding repo. We do not clone that one in the hour. The hour is the front door, not the course.</p>
+      <div class="callout">
+        <p class="eyebrow">Do not do this yet</p>
+        <p>Do not create a repo before Thursday. We will make a blank one together, then the Vibe Coding template at the end. If you arrive with no account, you still create one in the hour.</p>
+      </div>
+      <ol>
+        <li>GitHub account. Google, Apple, or email is fine.</li>
+        <li>Claude Code, Codex, or any tool that can open a local folder.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <p>Thursday, 15 Oct, 9:00 to 10:00 AM PT. Get the account if you can. The rest can wait.</p>
+  </footer>
+</div>
+</body>
+</html>
